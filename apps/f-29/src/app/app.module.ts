@@ -11,7 +11,7 @@ import { TestComponent } from './test/test.component';
 
 const routes : Routes = [
   {
-    path         : '',
+    path         : 'login',
     loadChildren : () =>
       loadRemoteModule ( {
         type          : 'module',
