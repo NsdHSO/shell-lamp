@@ -1,25 +1,40 @@
 import { loadRemoteModule } from '@angular-architects/module-federation';
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { RouterModule, Routes } from '@angular/router';
+import { NgModule }         from '@angular/core';
+import { BrowserModule }    from '@angular/platform-browser';
+import {
+  RouterModule,
+  Routes
+}                           from '@angular/router';
 
-import { AppComponent } from './app.component';
+import { AppComponent }  from './app.component';
+import { TestComponent } from './test/test.component';
 
-const routes: Routes =[
+const routes : Routes = [
   {
-    path:'',
-    loadChildren: () => loadRemoteModule({
-        type: 'module',
-        remoteEntry: `https://login-carni.vercel.app/remoteEntry.js`,
-        exposedModule: './Module'
-    }).then(m => m.SignInModule),
-},
-]
+    path         : '',
+    loadChildren : () =>
+      loadRemoteModule ( {
+        type          : 'module',
+        remoteEntry   : `https://login-carni.vercel.app/remoteEntry.js`,
+        exposedModule : './Module',
+      } ).then ( ( m ) => m.SignInModule ),
+  },
+  {
+    path      : 'vorkurt',
+    component : TestComponent
+  }
+];
 
-@NgModule({
-  declarations: [AppComponent],
-  imports: [BrowserModule, RouterModule.forRoot(routes)],
-  providers: [],
-  bootstrap: [AppComponent],
-})
+@NgModule ( {
+  declarations : [
+    AppComponent,
+    TestComponent
+  ],
+  imports      : [
+    BrowserModule,
+    RouterModule.forRoot ( routes )
+  ],
+  providers    : [],
+  bootstrap    : [ AppComponent ],
+} )
 export class AppModule {}
