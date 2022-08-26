@@ -1,3 +1,4 @@
 {
-	"auth": "https://login-carni.vercel.app/remoteEntry.js"
+  "auth": "https://login-carni.vercel.app/remoteEntry.js",
+  "newpie": "https://newpie.vercel.app/remoteEntry.js"
 }

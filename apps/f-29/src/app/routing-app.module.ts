@@ -14,7 +14,7 @@ const routes : Routes = [
     loadChildren : () =>
       loadRemoteModule ( {
         type          : 'module',
-        remoteEntry   : `${ environment.shell.newpie }`,
+        remoteEntry   : `${ environment.shell.newpie }/remoteEntry.js`,
         exposedModule : './Module',
       } ).then ( ( m ) => m.InductionModule ),
   },
