@@ -1,10 +1,11 @@
-import { loadRemoteModule } from "@angular-architects/module-federation";
-import { NgModule }         from '@angular/core';
+import { loadRemoteModule }   from "@angular-architects/module-federation";
+import { NgModule }           from '@angular/core';
 import {
   RouterModule,
   Routes
-}                           from "@angular/router";
-import { TestComponent }    from "./test/test.component";
+}                             from "@angular/router";
+import { AuthorizationGuard } from "ngx-virous";
+import { TestComponent }      from "./test/test.component";
 
 
 const routes : Routes = [
@@ -19,7 +20,8 @@ const routes : Routes = [
   },
   {
     path      : 'vorkurt',
-    component : TestComponent
+    component : TestComponent,
+    canActivate: [AuthorizationGuard]
   }
 ];
 
