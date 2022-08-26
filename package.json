@@ -25,6 +25,7 @@
     "bootstrap-icons": "^1.9.1",
     "ngx-liburg-frame-side": "^0.0.23",
     "ngx-liburg-icon": "^0.0.14",
+    "ngx-toastr": "^15.0.0",
     "ngx-virous": "^0.0.5",
     "reset-css": "^5.0.1",
     "rxjs": "~7.5.0",
