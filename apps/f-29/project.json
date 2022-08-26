@@ -20,7 +20,10 @@
           "apps/f-29/src/assets"
         ],
         "styles": [
-          "apps/f-29/src/styles.scss"
+          "node_modules/reset-css/reset.css",
+          "apps/f-29/src/styles.scss",
+          "node_modules/bootstrap/scss/bootstrap.scss",
+          "node_modules/bootstrap-icons/font/bootstrap-icons.css"
         ],
         "scripts": [],
         "customWebpackConfig": {
