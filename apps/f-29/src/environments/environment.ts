@@ -1,16 +1,11 @@
-// This file can be replaced during build by using the `fileReplacements` array.
-// `ng build` replaces `environment.ts` with `environment.prod.ts`.
-// The list of file replacements can be found in `angular.json`.
 
 export const environment = {
   production: false,
+  supabase: {
+    url: 'https://dagcxlhlobxttfrlesro.supabase.co',
+    key: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRhZ2N4bGhsb2J4dHRmcmxlc3JvIiwicm9sZSI6ImFub24iLCJpYXQiOjE2NjA3NzcwNjMsImV4cCI6MTk3NjM1MzA2M30.I-NrrU1nKv431AKnKUWm3J7FrANTgP8s6GsS5p-4SME',
+  },
+  shell:{
+    name: "https://shell-lamp.vercel.app/"
+  }
 };
-
-/*
- * For easier debugging in development mode, you can import the following file
- * to ignore zone related error stack frames such as `zone.run`, `zoneDelegate.invokeTask`.
- *
- * This import should be commented out in production mode because it will have a negative impact
- * on performance if an error is thrown.
- */
-// import 'zone.js/plugins/zone-error';  // Included with Angular CLI.
