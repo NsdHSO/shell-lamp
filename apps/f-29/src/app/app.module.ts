@@ -22,7 +22,7 @@ import { TestComponent }    from './test/test.component';
     BrowserAnimationsModule,
     ToastrModule.forRoot({
       timeOut: 10000,
-      positionClass: 'toast-top-right',
+      positionClass: 'toast-top-left',
       preventDuplicates: true,
     }),
   ],
