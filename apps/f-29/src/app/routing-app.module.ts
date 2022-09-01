@@ -6,7 +6,6 @@ import {
 }                             from "@angular/router";
 import { AuthorizationGuard } from "ngx-virous";
 import { environment }        from "../environments/environment";
-import { TestComponent }      from "./test/test.component";
 
 const routes : Routes = [
   {
@@ -23,14 +22,19 @@ const routes : Routes = [
     loadChildren : () =>
       loadRemoteModule ( {
         type          : 'module',
-        remoteEntry   : `https://login-carni.vercel.app/remoteEntry.js`,
+        remoteEntry   : `${ environment.shell.tet }remoteEntry.js`,
         exposedModule : './Module',
       } ).then ( ( m ) => m.SignInModule ),
   },
   {
-    path        : 'vorkurt',
-    component   : TestComponent,
-    canActivate : [ AuthorizationGuard ]
+    path         : 'vorkurt',
+    loadChildren : () =>
+      loadRemoteModule ( {
+        type          : 'module',
+        remoteEntry   : `${ environment.shell.herus }remoteEntry.js`,
+        exposedModule : './Module',
+      } ).then ( ( m ) => m.AppModule ),
+    canActivate  : [ AuthorizationGuard ]
   }
 ];
 

@@ -6,6 +6,9 @@ export const environment = {
   },
   shell      : {
     name   : "https://shell-lamp.vercel.app/",
-    newpie : "https://newpie.vercel.app/"
+    newpie : "https://newpie.vercel.app/",
+    tet: "https://login-carni.vercel.app/",
+    herus: "https://herus.vercel.app/"
+
   }
 };
