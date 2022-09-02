@@ -10,30 +10,15 @@ import { environment }        from "../environments/environment";
 const routes : Routes = [
   {
     path         : '',
-    loadChildren : () =>
-      loadRemoteModule ( {
-        type          : 'module',
-        remoteEntry   : `${ environment.shell.newpie }remoteEntry.js`,
-        exposedModule : './Module',
-      } ).then ( ( m ) => m.InductionModule ),
+    loadChildren : () => import('newpie/Module').then ( m => m.InductionModule )
   },
   {
     path         : 'login',
-    loadChildren : () =>
-      loadRemoteModule ( {
-        type          : 'module',
-        remoteEntry   : `${ environment.shell.tet }remoteEntry.js`,
-        exposedModule : './Module',
-      } ).then ( ( m ) => m.SignInModule ),
+    loadChildren : () => import('login/Module').then ( m => m.SignInModule )
   },
   {
     path         : 'vorkurt',
-    loadChildren : () =>
-      loadRemoteModule ( {
-        type          : 'module',
-        remoteEntry   : `${ environment.shell.herus }remoteEntry.js`,
-        exposedModule : './Module',
-      } ).then ( ( m ) => m.AppModule ),
+    loadChildren : () => import('herus/Module').then ( m => m.AppModule ),
     canActivate  : [ AuthorizationGuard ]
   }
 ];

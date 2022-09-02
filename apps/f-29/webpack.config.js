@@ -26,29 +26,31 @@ module.exports = {
   },
   plugins: [
     new ModuleFederationPlugin({
-        library: { type: "module" },
+      library: {type: "module"},
 
-        // For remotes (please adjust)
-        // name: "f29",
-        // filename: "remoteEntry.js",
-        // exposes: {
-        //     './Component': './apps/f-29/src/app/app.component.ts',
-        // },
+      // For remotes (please adjust)
+      // name: "f29",
+      // filename: "remoteEntry.js",
+      // exposes: {
+      //     './Component': './apps/f-29/src/app/app.component.ts',
+      // },
 
-        // For hosts (please adjust)
-        // remotes: {
-        //     "mfe1": "http://localhost:3000/remoteEntry.js",
+      // For hosts (please adjust)
+      remotes: {
+        "auth": "https://login-carni.vercel.app/remoteEntry.js",
+        "newpie": "https://newpie.vercel.app/remoteEntry.js",
+        "login": "https://login-carni.vercel.app/remoteEntry.js",
+        "herus": "https://herus.vercel.app/remoteEntry.js"
+      },
 
-        // },
+      shared: share({
+        "@angular/core": {singleton: true, strictVersion: true, requiredVersion: 'auto'},
+        "@angular/common": {singleton: true, strictVersion: true, requiredVersion: 'auto'},
+        "@angular/common/http": {singleton: true, strictVersion: true, requiredVersion: 'auto'},
+        "@angular/router": {singleton: true, strictVersion: true, requiredVersion: 'auto'},
 
-        shared: share({
-          "@angular/core": { singleton: true, strictVersion: true, requiredVersion: 'auto' },
-          "@angular/common": { singleton: true, strictVersion: true, requiredVersion: 'auto' },
-          "@angular/common/http": { singleton: true, strictVersion: true, requiredVersion: 'auto' },
-          "@angular/router": { singleton: true, strictVersion: true, requiredVersion: 'auto' },
-
-          ...sharedMappings.getDescriptors()
-        })
+        ...sharedMappings.getDescriptors()
+      })
 
     }),
   ],
