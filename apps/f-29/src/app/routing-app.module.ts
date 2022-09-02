@@ -5,7 +5,6 @@ import {
   Routes
 }                             from "@angular/router";
 import { AuthorizationGuard } from "ngx-virous";
-import { environment }        from "../environments/environment";
 
 const routes : Routes = [
   {
