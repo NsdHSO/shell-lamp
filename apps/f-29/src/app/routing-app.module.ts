@@ -19,7 +19,6 @@ const routes : Routes = [
     loadChildren : () => import('herus/Module').then ( m => m.AppModule ),
     canActivate  : [ AuthorizationGuard ]
   },
-  { path: '', pathMatch: 'full', redirectTo: '' },
 ];
 
 @NgModule ( {
