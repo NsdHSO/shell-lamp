@@ -1,24 +1,41 @@
+import { loadRemoteModule }   from "@angular-architects/module-federation";
 import { NgModule }           from '@angular/core';
 import {
   RouterModule,
   Routes
 }                             from "@angular/router";
 import { AuthorizationGuard } from "ngx-virous";
+import { environment }        from "../environments/environment";
 
 const routes : Routes = [
   {
     path         : '',
-    loadChildren : () => import('newpie/Module').then ( m => m.InductionModule )
+    loadChildren : () =>
+      loadRemoteModule ( {
+        type          : 'module',
+        remoteEntry   : `${ environment.shell.newpie }remoteEntry.js`,
+        exposedModule : './Module',
+      } ).then ( ( m ) => m.InductionModule ),
   },
   {
     path         : 'login',
-    loadChildren : () => import('login/Module').then ( m => m.SignInModule )
+    loadChildren : () =>
+      loadRemoteModule ( {
+        type          : 'module',
+        remoteEntry   : `${ environment.shell.tet }remoteEntry.js`,
+        exposedModule : './Module',
+      } ).then ( ( m ) => m.SignInModule ),
   },
   {
     path         : 'vorkurt',
-    loadChildren : () => import('herus/Module').then ( m => m.AppModule ),
-    canActivate  : [ AuthorizationGuard ]
+    loadChildren : () =>
+      loadRemoteModule ( {
+        type          : 'module',
+        remoteEntry   : `${ environment.shell.herus }remoteEntry.js`,
+        exposedModule : './Module',
+      } ).then ( ( m ) => m.AppModule ),
   },
+  { path: '', pathMatch: 'full', redirectTo: '' },
 ];
 
 @NgModule ( {
