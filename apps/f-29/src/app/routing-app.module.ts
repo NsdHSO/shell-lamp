@@ -35,7 +35,6 @@ const routes : Routes = [
         exposedModule : './Module',
       } ).then ( ( m ) => m.AppModule ),
   },
-  { path: '', pathMatch: 'full', redirectTo: '' },
 ];
 
 @NgModule ( {
