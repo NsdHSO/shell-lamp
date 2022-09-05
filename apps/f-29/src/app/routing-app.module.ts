@@ -1,4 +1,3 @@
-import { loadRemoteModule }   from "@angular-architects/module-federation";
 import { NgModule }           from '@angular/core';
 import {
   RouterModule,
@@ -7,6 +6,7 @@ import {
 import { AuthorizationGuard } from "ngx-virous";
 
 const routes : Routes = [
+  { path: '', pathMatch: 'full', redirectTo: '' },
   {
     path         : '',
     loadChildren : () => import('newpie/Module').then ( m => m.InductionModule )
