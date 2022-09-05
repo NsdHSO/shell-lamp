@@ -6,7 +6,6 @@ import {
 import { AuthorizationGuard } from "ngx-virous";
 
 const routes : Routes = [
-  { path: '', pathMatch: 'full', redirectTo: '' },
   {
     path         : '',
     loadChildren : () => import('newpie/Module').then ( m => m.InductionModule )
@@ -19,7 +18,8 @@ const routes : Routes = [
     path         : 'vorkurt',
     loadChildren : () => import('herus/Module').then ( m => m.AppModule ),
     canActivate  : [ AuthorizationGuard ]
-  }
+  },
+  { path: '', pathMatch: 'full', redirectTo: '' },
 ];
 
 @NgModule ( {
